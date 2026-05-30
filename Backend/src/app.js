@@ -3,12 +3,16 @@ const cookieParser = require("cookie-parser")
 const cors = require("cors")
 
 const app = express()
+app.set("trust proxy", 1)
 
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin: "https://nextround-nzbb6b2xt-aryan-nns-projects.vercel.app",
-  credentials: true
+  origin: [
+      "https://nextround-ai-jet.vercel.app",
+      "https://nextround-nzbb6b2xt-aryan-nns-projects.vercel.app",
+    ],
+  credentials: true,
 }))
 
 /*require all the ri=outes here*/
